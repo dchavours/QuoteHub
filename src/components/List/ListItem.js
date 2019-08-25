@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import '../style.css';
+import '../style.scss';
 
 class ListItem extends Component {
   completeClick = completeTodoId => {
