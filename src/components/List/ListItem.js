@@ -17,7 +17,16 @@ class ListItem extends Component {
     const { todo } = this.props;
 
     return (
-      <div key="toDoName" className="col s10 offset-s1 to-do-list-item black">
+      // https://materializecss.com/grid.html
+      // col s10 = This div is 10 columns wide.
+      // 
+      //
+      //
+      //
+
+
+
+      <div key="toDoName" className="to-do-list-item">
         <h4>
           {todo.title} <br />
           {todo.company}
