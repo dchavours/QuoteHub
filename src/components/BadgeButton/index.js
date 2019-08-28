@@ -12,9 +12,8 @@ const BadgeButton = props => {
   return (
     <div>
       <Button variant="primary">
-        Recent Enquries
+        Recent Enquiries
         <Badge variant="light">{count}</Badge>
-        <span className="sr-only">es</span>
       </Button>
     </div>
   );

@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import ListItem from './ListItem';
 import actions from '../../redux/todo/actions';
-import '../style.scss';
+import '../style.css';
 
 const { addToDoRequest } = actions;
 

@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import actions from '../../redux/todo/actions';
 
-import '../style.scss';
+import '../style.css';
+
+const { completeToDoRequest } = actions;
 
 class ListItem extends Component {
-  completeClick = completeTodoId => {
-    const { completeToDo } = this.props;
-    completeToDo(completeTodoId);
+  completeClick = () => {
+    const { todoId, completeToDo } = this.props;
+
+    completeToDo(todoId);
   };
 
   render() {
@@ -18,8 +22,11 @@ class ListItem extends Component {
           {todo.title} <br />
           {todo.company}
           <span
-            // onClick={() => this.completeClick(todoId)}
             className="complete-todo-item waves-effect waves-light blue lighten-5 blue-text text-darken-4 btn"
+            role="button"
+            tabIndex="0"
+            onClick={this.completeClick}
+            onKeyPress={() => {}}
           >
             <i className="large material-icons">Done</i>
           </span>
@@ -32,4 +39,8 @@ class ListItem extends Component {
   }
 }
 
-export default connect(null)(ListItem);
+const mapDispatchToProps = {
+  completeToDo: completeToDoRequest,
+}
+
+export default connect(null, mapDispatchToProps)(ListItem);

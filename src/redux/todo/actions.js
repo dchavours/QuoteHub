@@ -39,9 +39,8 @@ const actions = {
     type: actions.COMPLETE_TODO_REQUEST,
     payload,
   }),
-  completeToDoSuccess: payload => ({
+  completeToDoSuccess: () => ({
     type: actions.COMPLETE_TODO_SUCCESS,
-    payload,
   }),
   completeToDoFail: err => ({
     type: actions.COMPLETE_TODO_FAIL,

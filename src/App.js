@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 
 import Routes from './routes/Routes';
 import store from './redux/store';
-import './App.scss';
+import './App.css';
 
 const App = () => {
   return (
