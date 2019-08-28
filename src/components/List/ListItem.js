@@ -31,13 +31,14 @@ class ListItem extends Component {
           {todo.title} <br />
           {todo.company}
           <span
-            className="complete-todo-item waves-effect waves-light blue lighten-5 blue-text text-darken-4 btn"
+            className="done-button complete-todo-item blue-text btn-custom"
             role="button"
             tabIndex="0"
             onClick={this.completeClick}
             onKeyPress={() => {}}
           >
-            <i className="large material-icons">Done</i>
+           
+            <i className="done-icon">Done</i>
           </span>
         </h4>
         <p>{todo.message}</p>
