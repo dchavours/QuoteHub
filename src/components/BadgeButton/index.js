@@ -1,5 +1,6 @@
 import React from 'react';
-import { Badge, Button } from 'react-bootstrap';
+import { Badge} from './Badge/Badge';
+import { Button } from "./Button/Button";
 
 const BadgeButton = props => {
   const { todos } = props;
@@ -11,9 +12,9 @@ const BadgeButton = props => {
 
   return (
     <div>
-      <Button variant="primary">
-        Recent Enquiries
-        <Badge variant="light">{count}</Badge>
+      <Button label="ll">
+      <p>Recent Enquiries</p>
+        <Badge>{count}</Badge>
       </Button>
     </div>
   );
