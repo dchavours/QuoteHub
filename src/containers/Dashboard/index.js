@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 import todoActions from '../../redux/todo/actions';
 import BadgeButton from '../../components/BadgeButton';
-import List from '../../components/List';
+// import List from '../../components/List';
+import List from '../../components/List/List/List';
+
 import './styles.css';
 
 const { fetchToDoRequest } = todoActions;

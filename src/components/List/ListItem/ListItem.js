@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import actions from '../../redux/todo/actions';
+import actions from '../../../redux/todo/actions';
 
-import '../style.css';
+import '../ListItem/ListItem.css';
 
 const { completeToDoRequest } = actions;
 

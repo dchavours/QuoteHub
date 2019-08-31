@@ -1,0 +1,76 @@
+
+
+.to-do-list-item:hover {
+    background-color: dodgerblue !important;
+  }
+  
+  
+  #todo-add-form {
+    animation: 1s;
+    animation-name: slidein;
+  }
+  
+  input#todoNext:active {
+    border-bottom: 1px solid dodgerblue !important;
+  }
+  
+  @keyframes slidein {
+    from {
+      opacity: 0;
+    }
+    to {
+      margin-left: 1;
+    }
+  }
+  
+  /* @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,500,700,900) */
+  
+  * {
+    font-family: 'Roboto Condensed';
+    box-sizing: border-box;
+  }
+  
+  
+  
+  
+  html, button {
+    border: none;
+    /* background: #42afe3; */
+    color: rgb(0, 0, 0);
+    padding: 10px 22px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border: 3px solid #42afe3;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  
+  .btn-custom {
+  
+  
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+  
+    font-size: 14px;
+    outline: 0;
+  
+    text-decoration: none;
+    color: #fff;
+    background-color: #e0e0e0;
+    text-align: center;
+    letter-spacing: .5px;
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+  
+  }
