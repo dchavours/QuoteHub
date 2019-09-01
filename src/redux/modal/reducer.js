@@ -1,9 +1,7 @@
 import actions from './actions';
 
 const initialState = {
-  todos: [],
-  error: null,
-  visible: false,
+ modal: false
 };
 
 export default function todoReducer(state = initialState, action) {

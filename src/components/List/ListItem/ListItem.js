@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../../redux/todo/actions';
+import ListModal from '../ListModal/ListModal';
 
 import '../ListItem/ListItem.css';
 
-const { completeToDoRequest } = actions;
+const { completeToDoRequest, openModalRequest } = actions;
 
 class ListItem extends Component {
+
+    inspectModal = () => {
+    console.log(5);
+    
+
+  }
+
+
   completeClick = () => {
     const { todoId, completeToDo } = this.props;
 
@@ -17,16 +26,8 @@ class ListItem extends Component {
     const { todo } = this.props;
 
     return (
-      // https://materializecss.com/grid.html
-      // col s10 = This div is 10 columns wide.
-      // 
-      //
-      //
-      //
+      <div key="toDoName" className="to-do-list-item" onClick={(e) => this.setState({ isOpen: true})}>
 
-
-
-      <div key="toDoName" className="to-do-list-item">
         <h4>
           {todo.title} <br />
           {todo.company}
@@ -43,7 +44,6 @@ class ListItem extends Component {
         </h4>
         <p>{todo.message}</p>
 
-        {/* Item */}
       </div>
     );
   }
@@ -51,6 +51,7 @@ class ListItem extends Component {
 
 const mapDispatchToProps = {
   completeToDo: completeToDoRequest,
+  openModal: openModalRequest
 }
 
 export default connect(null, mapDispatchToProps)(ListItem);
