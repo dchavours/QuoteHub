@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import ModalExample from '../../components/ModalExample';
 import  Button  from '../Button/Button';
 
-
 import { actions } from '../../ducks/modal.js';
 
-import 'chramework/dist/main.css';
 import './styles.css';
 
 class App extends Component {

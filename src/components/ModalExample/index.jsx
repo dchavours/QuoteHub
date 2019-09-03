@@ -4,9 +4,14 @@ import Button from '../Button/Button';
 
 import './styles.css';
 
+// This component is not connected to the store. 
+
 class ModalExample extends Component {
 	render() {
-		const { title, text, subTitle, buttons, exit } = this.props.modalProps;
+		const { feature, text, buttons, exit } = this.props.modalProps;
+
+
+
 		return (
 			<div className="ModalExample">
 				{exit && (

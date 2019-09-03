@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { unlockScroll } from "../../libs/scrollLock.js";
 
 import { actions } from '../../ducks/modal.js';
 
 import './styles.css';
 
 class ModalContainer extends Component {
+	// Initiates the HIDE_MODAL type. 
 	closeModal = () => {
-		const { closeModal, onClose = () => {} } = this.props;
+		const { closeModal = () => {} } = this.props;
 		closeModal();
-		onClose();
+		
 	};
 
 	render() {
@@ -23,7 +23,7 @@ class ModalContainer extends Component {
 			<div>
 			
 				{modalType && (
-					<div classNames="ModalContainer" timeout={150} onExited={unlockScroll}>
+					<div classNames="ModalContainer" timeout={150}>
 						<div className="ModalContainer">
 							<div
 								className="ModalContainer__overlay"
