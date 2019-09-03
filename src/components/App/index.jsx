@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ModalExample from '../../components/ModalExample';
-import { Heading, Logo, Button } from 'chramework';
+// import { Button } from 'chramework';
+import  Button  from '../Button/Button';
+
+
 import { actions } from '../../ducks/modal.js';
 
 import 'chramework/dist/main.css';
@@ -12,7 +15,8 @@ class App extends Component {
 		return (
 			<div className="App">
 				<br />
-				<Heading level={2}>Heading</Heading>
+				<br />
+				<br />
 
 				<div>
 					<Button
