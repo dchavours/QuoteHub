@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { unlockScroll } from "../../libs/scrollLock.js";
 
 import { actions } from '../../ducks/modal.js';
@@ -21,9 +20,10 @@ class ModalContainer extends Component {
 		const SpecificModal = modalType;
 
 		return (
-			<TransitionGroup>
+			<div>
+			
 				{modalType && (
-					<CSSTransition classNames="ModalContainer" timeout={150} onExited={unlockScroll}>
+					<div classNames="ModalContainer" timeout={150} onExited={unlockScroll}>
 						<div className="ModalContainer">
 							<div
 								className="ModalContainer__overlay"
@@ -43,9 +43,10 @@ class ModalContainer extends Component {
 								</div>
 							</div>
 						</div>
-					</CSSTransition>
+					</div>
 				)}
-			</TransitionGroup>
+			
+			</div>
 		);
 	}
 }
