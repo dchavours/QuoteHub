@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import actions from '../../../redux/todo/actions';
 import ListModal from '../ListModal/ListModal';
 
+
+
+// Duck file. 
+// import { actions } from '../../ducks/modal.js';
+
+//End duck file. 
+
+
 import '../ListItem/ListItem.css';
 
 const { completeToDoRequest, openModalRequest } = actions;
@@ -26,7 +34,7 @@ class ListItem extends Component {
     const { todo } = this.props;
 
     return (
-      <div key="toDoName" className="to-do-list-item" onClick={(e) => this.setState({ isOpen: true})}>
+      <div key="toDoName" className="to-do-list-item" onClick={this.inspectModal}>
 
         <h4>
           {todo.title} <br />
@@ -41,6 +49,9 @@ class ListItem extends Component {
            
             <i className="done-icon">Done</i>
           </span>
+
+		  <ListModal/>
+
         </h4>
         <p>{todo.message}</p>
 
