@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Heading, Button } from 'chramework';
+import Button from '../Button/Button';
 
-import 'chramework/dist/main.css';
+
 import './styles.css';
 
 class ModalExample extends Component {
@@ -19,20 +19,7 @@ class ModalExample extends Component {
 
 				)}
 
-				{(title || subTitle) && (
-					<div className="ModalExample__header">
-						{title && (
-							<Heading className="ModalExample__titel" level={3}>
-								{title}
-							</Heading>
-						)}
-						{subTitle && (
-							<Heading className="ModalExample__subTitle" level={4}>
-								{subTitle}
-							</Heading>
-						)}
-					</div>
-				)}
+	
 				{text && (
 					<div className="ModalExample__body">
 						<div className="ModalExample__text">{text}</div>
