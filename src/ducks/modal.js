@@ -1,4 +1,3 @@
-import { lockScroll, unlockScroll } from "../libs/scrollLock.js";
 
 export const types = {
   INSERT_MODAL: "INSERT_MODAL",
@@ -31,7 +30,6 @@ export default function modal(state = initialState, action) {
 
 export const actions = {
   openModal: modalParams => {
-    lockScroll();
     return {
       type: types.SHOW_MODAL,
       ...modalParams
