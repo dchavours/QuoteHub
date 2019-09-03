@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import actions from '../../../redux/todo/actions';
+// import ListModal from '../ListModal/ListModal';
 import ListModal from '../ListModal/ListModal';
+
 
 
 
@@ -49,7 +51,7 @@ class ListItem extends Component {
            
             <i className="done-icon">Done</i>
           </span>
-
+		  <br />
 		  <ListModal/>
 
         </h4>

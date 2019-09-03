@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
+
 import ListItem from '../ListItem/ListItem';
 import actions from '../../../redux/todo/actions';
 import '../List/List.css';
@@ -68,7 +69,9 @@ class List extends Component {
   render() {
     const { showForm } = this.state;
     return (
+   
       <div className="to-do-list-container">
+  
         <div className="row">{this.renderForm()}</div>
         <div className="row">{this.renderToDo()}</div>
         <div className="fixed-action-btn">
