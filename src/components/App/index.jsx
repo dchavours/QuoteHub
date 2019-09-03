@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ModalExample from '../../components/ModalExample';
-// import { Button } from 'chramework';
 import  Button  from '../Button/Button';
 
 
