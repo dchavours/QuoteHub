@@ -1,4 +1,4 @@
-const actions = {
+const listActions = {
   FETCH_TODO_REQUEST: 'FETCH_TODO_REQUEST',
   FETCH_TODO_SUCCESS: 'FETCH_TODO_SUCCESS',
   FETCH_TODO_FAIL: 'FETCH_TODO_FAIL',
@@ -13,51 +13,51 @@ const actions = {
   COMPLETE_TODO_FAIL: 'COMPLETE_TODO_FAIL',
 
   addToDoRequest: payload => ({
-    type: actions.ADD_TODO_REQUEST,
+    type: listActions.ADD_TODO_REQUEST,
     payload,
   }),
   addToDoSuccess: payload => ({
-    type: actions.ADD_TODO_SUCCESS,
+    type: listActions.ADD_TODO_SUCCESS,
     payload,
   }),
   addToDoFail: err => ({
-    type: actions.ADD_TODO_FAIL,
+    type: listActions.ADD_TODO_FAIL,
     err,
   }),
   fetchToDoRequest: () => ({
-    type: actions.FETCH_TODO_REQUEST,
+    type: listActions.FETCH_TODO_REQUEST,
   }),
   fetchToDoSuccess: payload => ({
-    type: actions.FETCH_TODO_SUCCESS,
+    type: listActions.FETCH_TODO_SUCCESS,
     payload,
   }),
   fetchToDoFail: err => ({
-    type: actions.FETCH_TODO_FAIL,
+    type: listActions.FETCH_TODO_FAIL,
     err,
   }),
   completeToDoRequest: payload => ({
-    type: actions.COMPLETE_TODO_REQUEST,
+    type: listActions.COMPLETE_TODO_REQUEST,
     payload,
   }),
   completeToDoSuccess: () => ({
-    type: actions.COMPLETE_TODO_SUCCESS,
+    type: listActions.COMPLETE_TODO_SUCCESS,
   }),
   completeToDoFail: err => ({
-    type: actions.COMPLETE_TODO_FAIL,
+    type: listActions.COMPLETE_TODO_FAIL,
     err,
   }),
   viewedQueryRequest: payload => ({
-    type: actions.VIEWED_QUERY_REQUEST,
+    type: listActions.VIEWED_QUERY_REQUEST,
     payload,
   }),
   viewedQuerySuccess: payload => ({
-    type: actions.VIEWED_QUERY_SUCCESS,
+    type: listActions.VIEWED_QUERY_SUCCESS,
     payload,
   }),
   viewedQueryFail: err => ({
-    type: actions.VIEWED_QUERY_SUCCESS,
+    type: listActions.VIEWED_QUERY_SUCCESS,
     err,
   }),
 };
 
-export default actions;
+export default listActions;

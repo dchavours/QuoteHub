@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import actions from '../../../redux/todo/actions';
-// import ListModal from '../ListModal/ListModal';
+import listActions from '../../../redux/todo/actions';
 import ListModal from '../ListModal/ListModal';
+import modalActions from '../../../redux/modal/actions';
 
 
 
@@ -15,9 +15,18 @@ import ListModal from '../ListModal/ListModal';
 
 import '../ListItem/ListItem.css';
 
-const { completeToDoRequest, openModalRequest } = actions;
+const { completeToDoRequest, openModalRequest } = listActions;
+const { showModalRequest } = modalActions;
 
 class ListItem extends Component {
+
+    clickModal = () => {
+      const { showModalRequest, showModalFunction } = this.props; 
+
+      showModalFunction(showModalRequest);
+
+
+    }
 
     inspectModal = () => {
     console.log(5);
@@ -64,7 +73,8 @@ class ListItem extends Component {
 
 const mapDispatchToProps = {
   completeToDo: completeToDoRequest,
-  openModal: openModalRequest
+  showModal: showModalRequest
+
 }
 
 export default connect(null, mapDispatchToProps)(ListItem);

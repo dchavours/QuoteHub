@@ -8,7 +8,7 @@ import './styles.css';
 
 export class ModalExample extends Component {
 	render() {
-		const {  text, buttons, exit } = this.props.modalProps;
+		const {  text, buttons, exit } = this.props;
 
 
 

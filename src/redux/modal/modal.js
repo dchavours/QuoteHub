@@ -1,22 +1,54 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SHOW_MODAL
+
 export const types = {
     INSERT_MODAL: "INSERT_MODAL",
-    SHOW_MODAL: "SHOW_MODAL",
+    OPEN_MODAL_REQUEST: "OPEN_MODAL_REQUEST",
     HIDE_MODAL: "HIDE_MODAL",
     REMOVE_MODAL: "REMOVE_MODAL"
   };
   
   const initialState = {
-    modalType: null,
+    modalType: false,
     modalProps: {}
   };
   
   export default function modal(state = initialState, action) {
     switch (action.type) {
-      case types.SHOW_MODAL:
+      case types.OPEN_MODAL_REQUEST:
         return {
           ...state,
-          modalType: action.modalType,
+          modalType: true,
+          // PayLoad
           modalProps: action.modalProps
         };
   
@@ -31,7 +63,7 @@ export const types = {
   export const actions = {
     openModal: modalParams => {
       return {
-        type: types.SHOW_MODAL,
+        type: types.OPEN_MODAL_REQUEST,
         ...modalParams
       };
     },
