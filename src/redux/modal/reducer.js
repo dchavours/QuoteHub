@@ -1,42 +1,99 @@
-import actions from './actions';
+import modalActions from './actions';
 
 const initialState = {
- modal: false
+ modalType: false,
+ modalProps: {}
 };
 
-export default function todoReducer(state = initialState, action) {
+export default function modal(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case actions.OPEN_MODAL_REQUEST:
+    case modalActions.OPEN_MODAL_REQUEST:
       return {
         ...state,
+        modalType: true,
+        modalProps: action.modalProps,
         error: null,
       };
-    case actions.OPEN_MODAL_SUCCESS:
+
+
+// Moving data throughout the flow chart 
+// Make copies of nested data.
+// Example I found on the web.
+  // Two points for Ravenclaw
+  // return {
+  //   ...state, // copy the state (level 0)
+  //   school: {
+  //     ...state.school, // copy level 1
+  //     house: {         // replace state.school.house...
+  //       ...state.school.house, // copy existing house properties
+  //       points: state.school.house.points + 2  // change a property
+  //     }
+  //   }
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    case modalActions.OPEN_MODAL_SUCCESS:
       return {
         ...state,
         visible: true,
         error: null,
       };
-    case actions.OPEN_MODAL_FAIL:
+    case modalActions.OPEN_MODAL_FAIL:
       return {
         ...state,
         visible: false,
         error: payload,
       };
-    case actions.CLOSE_MODAL_REQUEST:
+    case modalActions.CLOSE_MODAL_REQUEST:
       return {
         ...state,
         error: null,
       };
-    case actions.CLOSE_MODAL_SUCCESS:
+    case modalActions.CLOSE_MODAL_SUCCESS:
       return {
         ...state,
         visible: false,
         error: null,
       };
-    case actions.CLOSE_MODAL_FAIL:
+    case modalActions.CLOSE_MODAL_FAIL:
       return {
         ...state,
         visible: false,

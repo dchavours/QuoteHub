@@ -6,9 +6,9 @@ const modalActions = {
   CLOSE_MODAL_SUCCESS: 'CLOSE_MODAL_SUCCESS',
   CLOSE_MODAL_FAIL: 'CLOSE_MODAL_FAIL',
 
-  openModalRequest: payload => ({
+  openModal: modalParams => ({
     type: modalActions.OPEN_MODAL_REQUEST,
-    payload,
+    ...modalParams,
   }),
   openModalSuccess: payload => ({
     type: modalActions.OPEN_MODAL_SUCCESS,

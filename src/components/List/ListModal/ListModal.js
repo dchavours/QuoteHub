@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from './ButtonModal/Button/Button';
-import { actions } from '../../../redux/modal/modal';
+import  modalActions from '../../../redux/modal/actions';
 import ModalExample from '../ListModal/ButtonModal/ModalExample';
 import { connect } from 'react-redux';
 
@@ -63,8 +63,8 @@ export class ListModal extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		openModal: modalParams => dispatch(actions.openModal(modalParams)),
-		closeModal: () => dispatch(actions.closeModal())
+		openModal: modalParams => dispatch(modalActions.openModal(modalParams)),
+		closeModal: () => dispatch(modalActions.closeModal())
 	};
 };
 export default connect(null, mapDispatchToProps)(ListModal);
