@@ -5,7 +5,7 @@ const initialState = {
  modalProps: {}
 };
 
-export default function modal(state = initialState, action) {
+export default function ModalReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -26,16 +26,16 @@ export default function modal(state = initialState, action) {
 // Make copies of nested data.
 // Example I found on the web.
   // Two points for Ravenclaw
-  return {
-    ...state, // copy the state (level 0)
-    school: {
-      ...state.school, // copy level 1
-      house: {         // replace state.school.house...
-        ...state.school.house, // copy existing house properties
-        points: state.school.house.points + 2  // change a property
-      }
-    }
-  }
+  // return {
+  //   ...state, // copy the state (level 0)
+  //   school: {
+  //     ...state.school, // copy level 1
+  //     house: {         // replace state.school.house...
+  //       ...state.school.house, // copy existing house properties
+  //       points: state.school.house.points + 2  // change a property
+  //     }
+  //   }
+  // }
 
 
 
