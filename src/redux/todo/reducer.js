@@ -5,6 +5,8 @@ const initialState = {
   addLoading: false,
   todos: [],
   error: null,
+  modalType: false,
+  modalProps: {}
 };
 
 export default function todoReducer(state = initialState, action) {

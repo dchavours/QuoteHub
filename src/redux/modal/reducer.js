@@ -2,7 +2,8 @@ import modalActions from './actions';
 
 const initialState = {
  modalType: false,
- modalProps: {}
+ modalProps: {},
+ error: null
 };
 
 export default function ModalReducer(state = initialState, action) {
@@ -14,9 +15,13 @@ export default function ModalReducer(state = initialState, action) {
         ...state,
        modalType: {
                     ...state,
-                    modalType:{               modalType: true,
+                    modalType:{ 
+                                 ...state,
+                                    modalType: {
+                                              modalType: true,
                                               modalProps: action.modalProps,
                                               error: null,
+                                    }
                     }
                   }
   };

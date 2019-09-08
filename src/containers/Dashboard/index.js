@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ListModal from "../../components/List/ListModal/ListModal";
 
 import todoActions from '../../redux/todo/actions';
 import BadgeButton from '../../components/BadgeButton';
@@ -18,7 +19,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const { loading, todos } = this.props;
+    const { loading, todos, modal } = this.props;
     if (loading) {
       return (
         <div className="page-loader-fullscreen height-full width-full">
@@ -33,6 +34,7 @@ class Dashboard extends React.Component {
     return (
       <div className="container">
         <BadgeButton todos={todos} />
+        <ListModal modal={modal} />
         <List todos={todos} />
       </div>
     );
@@ -42,6 +44,8 @@ class Dashboard extends React.Component {
 const mapStateToProps = state => ({
   todos: state.TodoReducer.todos,
   loading: state.TodoReducer.fetchLoading,
+  modal: state.ModalReducer.modalProps
+
 });
 
 const mapDispatchToProps = {

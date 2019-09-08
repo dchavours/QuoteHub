@@ -77,4 +77,15 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(null, mapDispatchToProps)(ListItem);
+// const mapStateToProps = state => ({
+//   modal: state.ModalReducer.modalProps
+
+// });
+
+
+
+
+export default connect(
+  null, 
+  mapDispatchToProps
+)(ListItem);
