@@ -27,63 +27,12 @@ export class ListModal extends Component {
         onCancel={handleHide}
         footer={null}
       />
-      <div>
-        
-			<Button
-						onClick={() => {
-							this.props.openModal({
-
-								modalType: ModalExample,
-								modalProps: {
-									exit: [
-										{
-											text: '08a09dsf*as0df8',
-											intent: 'success',
-											onClick: () => {
-											this.props.closeModal();
-											}
-										}
-									],
-									title: 'Title',
-									text: 'Text',
-									subTitle: 'Subtitle',
-									hasClose: false,
-									buttons: [
-										{
-											text: 'Text',
-											intent: 'success',
-											onClick: () => {
-												alert('Ок =)');
-												this.props.closeModal();
-											}
-										},
-										{
-											text: 'Text',
-											onClick: () => {
-												alert('Nooo =(');
-												this.props.closeModal();
-											}
-										}
-									]
-								}
-							});
-						}}
-						text="Open Modal"
-					/>
-      </div>
+     
     )
   }
 }
 
-{/* 
 
-const mapDispatchToProps = dispatch => {
-	return {
-		openModal: modalParams => dispatch(modalActions.openModal(modalParams)),
-		closeModal: () => dispatch(modalActions.closeModal())
-	};
-};
-export default connect(null, mapDispatchToProps)(ListModal); */}
 
 export default connectModal({ name: "download", destroyOnHide: true })(
   ModalDownload
