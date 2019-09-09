@@ -87,10 +87,3 @@ export default connect(
 )(ListItem);
 
 
-
-
-// export default connect(
-//   null,
-//   dispatch => bindActionCreators({ show }, dispatch)
-// )(BaseHeaderMenu);
-

@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ListModal from "../../components/List/ListModal/ListModal";
-
 import todoActions from '../../redux/todo/actions';
 import BadgeButton from '../../components/BadgeButton';
 // import List from '../../components/List';
@@ -37,7 +35,6 @@ class Dashboard extends React.Component {
       <div className="container">
         <ModalDownload/>
         <BadgeButton todos={todos} />
-        <ListModal modal={modal} />
         <List todos={todos} />
       </div>
     );
