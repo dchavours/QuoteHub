@@ -4,6 +4,7 @@ import listActions from '../../../redux/todo/actions';
 // import ListModal from '../ListModal/ListModal';
 import modalActions from '../../../redux/modal/actions';
 import { show } from 'redux-modal'
+import Button from "../ListModal/ButtonModal/Button/Button";
 
 
 
@@ -55,8 +56,9 @@ class ListItem extends Component {
             <i className="done-icon">Done</i>
           </span>
 		  <br />
-		  <h3 key="download"><a onClick={this.handleOpen("download")}>touch</a></h3>
-
+		  {/* <h3 key="download"> */}
+        {/* <a onClick={this.handleOpen("download")}>touch</a></h3> */}
+        <Button text="Open Modal" key="download"onClick={this.handleOpen("download")}/>
         </h4>
         <p>{todo.message}</p>
 
