@@ -6,8 +6,10 @@ import todoActions from '../../redux/todo/actions';
 import BadgeButton from '../../components/BadgeButton';
 // import List from '../../components/List';
 import List from '../../components/List/List/List';
+import ModalDownload from "../../components/downloads/Modal";
 
 import './styles.css';
+// import { Modal } from 'antd';
 
 const { fetchToDoRequest } = todoActions;
 
@@ -33,6 +35,7 @@ class Dashboard extends React.Component {
     }
     return (
       <div className="container">
+        <ModalDownload/>
         <BadgeButton todos={todos} />
         <ListModal modal={modal} />
         <List todos={todos} />
@@ -44,7 +47,7 @@ class Dashboard extends React.Component {
 const mapStateToProps = state => ({
   todos: state.TodoReducer.todos,
   loading: state.TodoReducer.fetchLoading,
-  modal: state.ModalReducer.modalProps
+  // modal: state.ModalReducer.modalProps
 
 });
 

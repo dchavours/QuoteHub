@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import listActions from '../../../redux/todo/actions';
-import ListModal from '../ListModal/ListModal';
+// import ListModal from '../ListModal/ListModal';
 import modalActions from '../../../redux/modal/actions';
+import { show } from 'redux-modal'
 
-
-
-
-// Duck file. 
-// import { actions } from '../../ducks/modal.js';
-
-//End duck file. 
 
 
 import '../ListItem/ListItem.css';
@@ -20,18 +14,18 @@ const { showModalRequest } = modalActions;
 
 class ListItem extends Component {
 
-    clickModal = () => {
-      const { showModalRequest, showModalFunction } = this.props; 
+  handleOpen = name => () => {
+    this.props.show(name);
+  };
 
-      showModalFunction(showModalRequest);
 
-
-    }
+    // clickModal = () => {
+    //   const { showModalRequest, showModalFunction } = this.props; 
+    //   showModalFunction(showModalRequest);
+    // }
 
     inspectModal = () => {
-    console.log(5);
-    
-
+    console.log(5);   
   }
 
 
@@ -61,7 +55,7 @@ class ListItem extends Component {
             <i className="done-icon">Done</i>
           </span>
 		  <br />
-		  <ListModal/>
+		  <h3 key="download"><a onClick={this.handleOpen("download")}>touch</a></h3>
 
         </h4>
         <p>{todo.message}</p>
@@ -73,7 +67,9 @@ class ListItem extends Component {
 
 const mapDispatchToProps = {
   completeToDo: completeToDoRequest,
-  showModal: showModalRequest
+  showModal: showModalRequest,
+  show
+
 
 }
 
@@ -89,3 +85,12 @@ export default connect(
   null, 
   mapDispatchToProps
 )(ListItem);
+
+
+
+
+// export default connect(
+//   null,
+//   dispatch => bindActionCreators({ show }, dispatch)
+// )(BaseHeaderMenu);
+
