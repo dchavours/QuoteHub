@@ -11,31 +11,42 @@ class ModalDownload extends Component {
   };
 
   state = {
-    messages: [ ]
+    posts: [ ]
   }
 
 
    
 
 componentDidMount() {
-   axios.get('https://quotehub-example.firebaseio.com/messages.json')
+  
+axios.get('https://quotehub-example.firebaseio.com/messages.json')
+          .then(res => {
+          console.log(res);
+        })
+        
+
+
+
+
+
+   axios.get('https://jsonplaceholder.typicode.com/posts')
                 .then(res => {
                 console.log(res);
-            //  this.setState({
-            //  messages: res.data.slice(1)
-            // })
+             this.setState({
+            posts: res.data.slice(0, 10)
+            })
           })
   }
 
   render() {
 
     const { show, handleHide } = this.props;
-    const { messages } = this.state; 
-     const messageList = messages.length ? (
-       messages.map(message => {
+    const { posts } = this.state; 
+     const postList = posts.length ? (
+       posts.map(post => {
          return (
-           <div className="post-card" key={message.id}>
-              <div className="card-content"></div>
+           <div className="post-card" key={post.id}>
+              <div className="card-content">{post.body}</div>
            </div>
          )
          
@@ -57,7 +68,12 @@ componentDidMount() {
         onCancel={handleHide}
         footer={null}
       >
-        {messageList}
+   
+
+
+
+
+
         <h2>Free Version (Demo)</h2>
         <ul className="button-list">
           <li className="button-list__item">
@@ -77,6 +93,9 @@ componentDidMount() {
           _____________
           <br></br>
           Put Axios and<br></br> Firebase code here.
+
+          <p>{postList}</p>
+
 
           <br></br>
 
@@ -118,19 +137,6 @@ JavaScript
 
 
  */}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
