@@ -34,6 +34,19 @@ class ModalDownload extends Component {
             </a>
           </li>
         </ul>
+
+
+        <h1>
+          _____________
+          <br></br>
+          Put Axios and<br></br> Firebase code here.
+          <br></br>
+          _____________
+          
+          
+          </h1>
+
+
         <h2>Full Version</h2>
         <ul className="button-list">
           <li className="button-list__item">
