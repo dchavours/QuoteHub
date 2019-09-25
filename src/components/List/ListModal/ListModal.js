@@ -5,6 +5,7 @@ import ModalExample from '../ListModal/ButtonModal/ModalExample';
 import { connect } from 'react-redux';
 import { Modal } from "antd";
 import { connectModal } from "redux-modal";
+import './styles.css';
 
 
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Modal } from "antd";
 import { connectModal } from "redux-modal";
+import './styles.css';
 
 class ModalDownload extends Component {
   static propTypes = {
