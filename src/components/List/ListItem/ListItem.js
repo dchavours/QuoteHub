@@ -15,6 +15,10 @@ const { showModalRequest } = modalActions;
 
 class ListItem extends Component {
 
+
+
+  
+
   handleOpen = name => () => {
     this.props.show(name);
   };
@@ -37,13 +41,7 @@ class ListItem extends Component {
     completeToDo(todoId);
   };
 
-  createUniqueClassName = () => {
-    
-    // This function will create a class that says {todo.math} and then Modal.js will loop through the DOM
-    // for where it's at and then go off that. 
-      // <div className="identifier" key={todo.math}></div>
-
-    }
+ 
 
 
   render() {
@@ -51,7 +49,6 @@ class ListItem extends Component {
 
     return (
 
-      // <link href="#" onClick={function(event){ func1(event); func2();}}>Trigger here</link>
 
 
       <div key="toDoName" className="to-do-list-item" onClick={this.inspectModal}>
