@@ -25,6 +25,7 @@ class ListItem extends Component {
     //   showModalFunction(showModalRequest);
     // }
 
+
     inspectModal = () => {
     console.log(5);   
   }
@@ -36,10 +37,23 @@ class ListItem extends Component {
     completeToDo(todoId);
   };
 
+  createUniqueClassName = () => {
+    
+    // This function will create a class that says {todo.math} and then Modal.js will loop through the DOM
+    // for where it's at and then go off that. 
+      // <div className="identifier" key={todo.math}></div>
+
+    }
+
+
   render() {
     const { todo } = this.props;
 
     return (
+
+      // <link href="#" onClick={function(event){ func1(event); func2();}}>Trigger here</link>
+
+
       <div key="toDoName" className="to-do-list-item" onClick={this.inspectModal}>
 
         <h4>
@@ -58,7 +72,10 @@ class ListItem extends Component {
 		  <br />
 		  {/* <h3 key="download"> */}
         {/* <a onClick={this.handleOpen("download")}>touch</a></h3> */}
-        <Button text="Open Modal" key="download"onClick={this.handleOpen("download")}/>
+        <Button text="Open Modal" key={this.todo} onClick={this.handleOpen("download")}/>
+
+
+
         </h4>
         <p>{todo.message}</p>
 
@@ -74,11 +91,6 @@ const mapDispatchToProps = {
 
 
 }
-
-// const mapStateToProps = state => ({
-//   modal: state.ModalReducer.modalProps
-
-// });
 
 
 
