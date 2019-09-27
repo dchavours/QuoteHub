@@ -2,7 +2,7 @@ import React from 'react'
 import '../Badge/badge.css';
 
 export const Badge = props =>{ 
-    console.log(props);
+
 
     return (
         <div>

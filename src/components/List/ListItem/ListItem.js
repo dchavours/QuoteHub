@@ -18,7 +18,7 @@ const { showModalRequest } = modalActions;
 class ListItem extends Component {
 
   handleOpen = name => () => {
-    this.props.show(name);
+    this.props.show(name, this.props.todo);
   };
 
 
