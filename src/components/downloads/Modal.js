@@ -10,12 +10,13 @@ class ModalDownload extends Component {
   };
 
 
+
   
 
   render() {
-    console.log(this.props);
-    const { show, handleHide } = this.props;
-    
+    const { show, handleHide, todo} = this.props;
+    // console.log(this.props);
+    console.log(this.store);
 
 
 
@@ -32,7 +33,7 @@ class ModalDownload extends Component {
         <br></br>
         Put Axios and<br></br> Firebase code here.
         {/* <p>{postList}</p> */}
-        <h1>{this.props.kLkd}</h1>
+        {/* <h1>{this.props.kLkd}</h1> */}
         <h2>{this.props.children}</h2>
         <br></br>
 

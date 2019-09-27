@@ -6,6 +6,8 @@ import modalActions from '../../../redux/modal/actions';
 import { show } from 'redux-modal'
 import Button from "../ListModal/ButtonModal/Button/Button";
 
+import ModalDownload from "../../../components/downloads/Modal";
+
 
 
 import '../ListItem/ListItem.css';
@@ -15,19 +17,9 @@ const { showModalRequest } = modalActions;
 
 class ListItem extends Component {
 
-
-
-  
-
   handleOpen = name => () => {
     this.props.show(name);
   };
-
-
-    // clickModal = () => {
-    //   const { showModalRequest, showModalFunction } = this.props; 
-    //   showModalFunction(showModalRequest);
-    // }
 
 
     inspectModal = () => {
@@ -46,6 +38,7 @@ class ListItem extends Component {
 
   render() {
     const { todo } = this.props;
+    console.log(todo.title);
 
     return (
 
@@ -67,19 +60,32 @@ class ListItem extends Component {
             <i className="done-icon">Done</i>
           </span>
 		  <br />
-		  {/* <h3 key="download"> */}
-        {/* <a onClick={this.handleOpen("download")}>touch</a></h3> */}
+
         <Button text="Open Modal" key={this.todo} onClick={this.handleOpen("download")}/>
 
 
 
         </h4>
         <p>{todo.message}</p>
+        <ModalDownload name="name">
+            {todo.title}
+            {49}
+          </ModalDownload>
 
       </div>
+
     );
   }
 }
+
+const mapStateToProps = (state, ownprops) => {
+  return {
+    todos: state.todos
+
+  }
+}
+
+
 
 const mapDispatchToProps = {
   completeToDo: completeToDoRequest,
@@ -93,8 +99,21 @@ const mapDispatchToProps = {
 
 
 export default connect(
-  null, 
+  mapStateToProps, 
   mapDispatchToProps
 )(ListItem);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
