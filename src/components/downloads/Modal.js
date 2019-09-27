@@ -22,7 +22,7 @@ class ModalDownload extends Component {
     return (
       <Modal
         width={1020}
-        title="Download Options"
+        // title="Download Options"
         visible={show}
         onOk={handleHide}
         onCancel={handleHide}
@@ -32,8 +32,15 @@ class ModalDownload extends Component {
         <br></br>
         Put Axios and<br></br> Firebase code here.
         {/* <p>{postList}</p> */}
-        {/* <h1>{this.props.kLkd}</h1> */}
-        <h2>{this.props.children}</h2>
+        <h1>{this.props.company}</h1>
+        <h3>{this.props.name}</h3>
+        <h4>{this.props.email}</h4>
+        <p>{this.props.message}</p>
+        <p>{this.props.phone}</p>
+        
+
+        <br></br>
+        <p>{this.props.children}</p>
         <br></br>
 
       </Modal>
