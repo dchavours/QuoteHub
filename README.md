@@ -21,7 +21,4 @@ to display an intuitive and interactive user interface.
 
 ## Firebase View
 
-![alt text](https://raw.githubusercontent.com/dchavours/QuoteHub/master/backend-view.png)
-
-
-hassanamro5
+Uses the automatic entry protocol that Firebase provides. 
