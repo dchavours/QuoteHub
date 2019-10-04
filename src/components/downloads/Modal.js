@@ -30,7 +30,7 @@ class ModalDownload extends Component {
         data={this.props}
       >  
         <br></br>
-        Put Axios and<br></br> Firebase code here.
+        Put formatted code here.<br></br> 
         {/* <p>{postList}</p> */}
         <h1>{this.props.company}</h1>
         <h3>{this.props.name}</h3>
