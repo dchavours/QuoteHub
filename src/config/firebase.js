@@ -4,6 +4,6 @@ import FirebaseConfig from './dev';
 firebase.initializeApp(FirebaseConfig);
 
 const databaseRef = firebase.database().ref();
-const todosRef = databaseRef.child('messages');
+const todoRef = databaseRef.child('messages');
 
-export default todosRef;
+export default todoRef;

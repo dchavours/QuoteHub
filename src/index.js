@@ -5,7 +5,6 @@ import 'materialize-css/dist/js/materialize.min';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { initializeFirebase } from './components/push-notification';
 
 
 
