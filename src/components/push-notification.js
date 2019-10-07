@@ -4,8 +4,6 @@ export const initializeFirebase = () => {
   firebase.initializeApp({
     messagingSenderId: '725694882105' 
   });
-
-
 }
 
 export const askForPermissioToReceiveNotifications = async () => {
