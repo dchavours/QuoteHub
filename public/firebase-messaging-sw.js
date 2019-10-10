@@ -9,24 +9,28 @@ importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-messaging.js');
 // This line is in initalize.js
 // const messaging = firebase.messaging();
 
-import messaging from '../src/components/PushNotifications/initialize';
-
-
-
-messaging.setBackgroundMessageHandler(function (payload) {
-  console.log('We Received a background message ', payload);
-
-  const notificationTitle = 'New Background Message Title';
-  const notificationOptions = {
-      body: 'Fallback Message body.',
-      icon: 'logo.png'
-  };
-
-  return self.registration.showNotification(notificationTitle,
-      notificationOptions);
+firebase.initializeApp({
+  messagingSenderId: '725694882105' // troque pelo seu sender id 
 });
 
-self.addEventListener("notificationclick", function (event) {
-  const clickedNotification = event.notification;
-  clickedNotification.close();
- })
+const messaging = firebase.messaging();
+
+
+
+messaging.getToken().then((currentToken) => {
+  if (currentToken) {
+    sendTokenToServer(currentToken);
+    updateUIForPushEnabled(currentToken);
+    console.log(currentToken);
+  } else {
+    // Show permission request.
+    console.log('No Instance ID token available. Request permission to generate one.');
+    // Show permission UI.
+    updateUIForPushPermissionRequired();
+    setTokenSentToServer(false);
+  }
+}).catch((err) => {
+  console.log('An error occurred while retrieving token. ', err);
+  showToken('Error retrieving Instance ID token. ', err);
+  setTokenSentToServer(false);
+});
