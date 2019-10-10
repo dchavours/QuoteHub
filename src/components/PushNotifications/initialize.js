@@ -21,5 +21,9 @@ export function initializePush() {
             console.log("Error Occurred", error);
          }
         });
+
+        // Complicating the logic. 
+        // messaging.onMessage();
+    
 }
 
