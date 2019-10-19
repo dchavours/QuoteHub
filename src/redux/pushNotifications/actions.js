@@ -1,7 +1,7 @@
 const notifActions = {
-    NOTIF_SEND_REQUEST: 'FETCH_TODO_REQUEST',
-    NOTIF_SEND_SUCCESS: 'FETCH_TODO_SUCCESS',
-    NOTIF_SEND_FAIL: 'FETCH_TODO_FAIL',
+    NOTIF_SEND_REQUEST: 'NOTIF_SEND_REQUEST',
+    NOTIF_SEND_SUCCESS: 'NOTIF_SEND_SUCCESS',
+    NOTIF_SEND_FAIL: 'NOTIF_SEND_FAIL',
    
     // Payload should be assigned to getToken()
     notifSendRequest: payload =>({
@@ -10,12 +10,12 @@ const notifActions = {
     }),
 
     notifSendSuccess: payload => ({
-      type: notifActions.NOTIF_SEND_REQUEST,
+      type: notifActions.NOTIF_SEND_SUCCESS,
       payload,
     }),
 
     notifSendFail: payload => ({
-      type: notifActions.NOTIF_SEND_SUCCESS,
+      type: notifActions.NOTIF_SEND_FAIL,
       payload,
     }),
 
