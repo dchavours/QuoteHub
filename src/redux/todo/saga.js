@@ -1,7 +1,11 @@
+// Adding the takeEvery effect onto Redux. 
+
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import todoRef from '../../config/firebase';
+import {todoRef} from '../../config/firebase';
+import {tokenRef} from '../../config/firebase';
 import actions from './actions';
+import { futimes } from 'fs';
 
 function addToDo(payload) {
   return new Promise((resolve, reject) => {
@@ -35,6 +39,19 @@ function fetchToDo() {
   });
 }
 
+////
+
+
+
+
+
+
+
+
+
+/////
+
+
 function* fetchToDoRequestHandler() {
   try {
     const user = yield call(fetchToDo);
@@ -43,6 +60,13 @@ function* fetchToDoRequestHandler() {
     yield put(actions.fetchToDoFail(err));
   }
 }
+
+
+
+
+// actions 
+
+
 
 function completeToDo(payload) {
   const nameRef = todoRef.child(payload).child('viewed').ref;

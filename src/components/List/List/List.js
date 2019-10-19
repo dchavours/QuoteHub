@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import {initializePush} from "../../PushNotifications/initialize";
+import { PushNotifications } from "../../PushNotifications/PushNotifications";
+
 
 import ListItem from '../ListItem/ListItem';
 import actions from '../../../redux/todo/actions';
@@ -21,10 +22,8 @@ class List extends Component {
     this.setState({ formValue: event.target.value });
   };
 
-  componentDidMount(){
 
-  initializePush();
-  }
+
 
 
   formSubmit = event => {
@@ -60,23 +59,6 @@ class List extends Component {
   };
 
 
-// Begin push notifications. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   renderToDo() {
@@ -97,9 +79,9 @@ class List extends Component {
   render() {
     const { showForm } = this.state;
     return (
-   
       <div className="to-do-list-container">
-  
+                  <PushNotifications/>
+
         <div className="row">{this.renderForm()}</div>
         <div className="row">{this.renderToDo()}</div>
         <div className="fixed-action-btn">

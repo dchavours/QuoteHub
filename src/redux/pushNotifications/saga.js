@@ -1,5 +1,8 @@
 import { request } from "request";
 
+
+
+// Use this for Express API.
 function sendPushNotification(){
 
     var headers = {
@@ -30,16 +33,29 @@ function sendPushNotification(){
 
 
 
-
-
-
-
-
-function* watchAndSend(){
-
-  
-
+function listTokenField() {
+  return new Promise((resolve, reject) => {
+    tokenRef.on('value', snapshot => {
+      if (snapshot && snapshot.exists()) {
+        console.log('VALUES: ', snapshot.val());
+        resolve(snapshot.val());
+      } else {
+        reject(new Error('Error!'));
+      }
+    });
+  });
 }
+
+function* asyncTokenList(){
+  try {
+    const sendToken = yield call(listTokenField);
+    yield put(actions.sendMessagingTokenSuccess(sendToken));
+  } catch (err) {
+    yield put(actions.sendMessagingTokenFail(err));
+  }
+}
+
+
 
 
 
