@@ -39,18 +39,7 @@ function fetchToDo() {
   });
 }
 
-////
-
-
-
-
-
-
-
-
-
-/////
-
+ 
 
 function* fetchToDoRequestHandler() {
   try {
