@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import notifActions from "../../redux/pushNotifications/actions";
-import { firebase } from "firebase";
+import React, { Component } from 'react';
+// import notifActions from "../../redux/pushNotifications/actions";
 import { messaging } from "../../config/firebase";
 
-
-const {sendTokenToDB} = notifActions; 
+// Being the process of sending found token to firebase. 
+// const {sendTokenToDB} = notifActions; 
 
 // I want to ask permission within this file. 
 

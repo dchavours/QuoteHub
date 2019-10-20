@@ -12,7 +12,7 @@ import ModalDownload from "../../../components/downloads/Modal";
 
 import '../ListItem/ListItem.css';
 
-const { completeToDoRequest, openModalRequest } = listActions;
+const { completeToDoRequest } = listActions;
 const { showModalRequest } = modalActions;
 
 class ListItem extends Component {

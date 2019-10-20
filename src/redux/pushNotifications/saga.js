@@ -1,7 +1,7 @@
 
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
-
-import {todoRef} from '../../config/firebase';
+import { call, put, takeLatest } from 'redux-saga/effects';
+// import takeEvery if an issues may arise. 
+// import {todoRef} from '../../config/firebase';
 import {tokenRef} from '../../config/firebase';
 import actions from './actions';
 

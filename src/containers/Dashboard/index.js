@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
 
 
   render() {
-    const { loading, todos, modal } = this.props;
+    const { loading, todos } = this.props;
     if (loading) {
       return (
         <div className="page-loader-fullscreen height-full width-full">

@@ -14,7 +14,7 @@ class ModalDownload extends Component {
   
 
   render() {
-    const { show, handleHide, todo} = this.props;
+    const { show, handleHide} = this.props;
     console.log(this.props);
 
 
