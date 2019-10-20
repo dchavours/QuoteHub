@@ -44,41 +44,6 @@ export default function ModalReducer(state = initialState, action) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     case modalActions.OPEN_MODAL_SUCCESS:
       return {
         ...state,

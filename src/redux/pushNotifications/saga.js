@@ -6,10 +6,9 @@ import {tokenRef} from '../../config/firebase';
 import actions from './actions';
 
 
-
 function requestToken() {
   return new Promise((resolve, reject) => {
-    todoRef.on('value', snapshot => {
+    tokenRef.on('value', snapshot => {
       if (snapshot && snapshot.exists()) {
         console.log('VALUES: ', snapshot.val());
         resolve(snapshot.val());
@@ -24,8 +23,8 @@ function requestToken() {
 
 function* requestTokenHandler() {
   try {
-    const user4 = yield call(requestToken);
-    yield put(actions.notifSendRequest(user4));
+    const note = yield call(requestToken);
+    yield put(actions.notifSendSuccess(note));
   } catch (err) {
     yield put(actions.notifSendFail(err));
   }

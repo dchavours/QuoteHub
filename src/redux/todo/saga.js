@@ -52,11 +52,6 @@ function* fetchToDoRequestHandler() {
 
 
 
-
-// actions 
-
-
-
 function completeToDo(payload) {
   const nameRef = todoRef.child(payload).child('viewed').ref;
   return nameRef

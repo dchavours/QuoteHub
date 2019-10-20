@@ -1,6 +1,8 @@
 import actions from './actions';
 
+// todos in the initialState is an empty array. 
 const initialState = {
+  fetchingNote: false,
   fetchLoading: false,
   addLoading: false,
   todos: [],
@@ -9,7 +11,7 @@ const initialState = {
   modalProps: {}
 };
 
-export default function todoReducer(state = initialState, action) {
+export default function TodoReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
