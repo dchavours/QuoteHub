@@ -9,7 +9,7 @@ export const messaging = firebase.messaging();
 
 const databaseRef = firebase.database().ref();
 export const todoRef = databaseRef.child('messages');
-export const tokenRef = todoRef.child("userTokens");
+export const tokenRef = databaseRef.child("userTokens");
 
 
 

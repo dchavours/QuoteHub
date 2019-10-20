@@ -1,5 +1,5 @@
 
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 import {todoRef} from '../../config/firebase';
 import {tokenRef} from '../../config/firebase';
@@ -25,17 +25,16 @@ function requestToken() {
 function* requestTokenHandler() {
   try {
     const user4 = yield call(requestToken);
-    yield put(actions.fetchToDoSuccess(user4));
+    yield put(actions.notifSendRequest(user4));
   } catch (err) {
-    yield put(actions.fetchToDoFail(err));
+    yield put(actions.notifSendFail(err));
   }
 }
 
 
 
 
-export default function* todoSagas() {
-  yield takeLatest(actions.ADD_TODO_REQUEST, addToDoRequestHandler);
-  yield takeLatest(actions.FETCH_TODO_REQUEST, fetchToDoRequestHandler);
-  yield takeLatest(actions.COMPLETE_TODO_REQUEST, completeToDoRequestHandler);
+export default function* tokenSagas() {
+  yield takeLatest(actions.NOTIF_SEND_REQUEST, requestTokenHandler);
+  
 }

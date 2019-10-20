@@ -4,9 +4,13 @@ const notifActions = {
     NOTIF_SEND_FAIL: 'NOTIF_SEND_FAIL',
    
     // Payload should be assigned to getToken()
-    notifSendRequest: payload =>({
+    // It looks like some types are functions. 
+
+
+    
+    notifSendRequest: () =>({
         type: notifActions.NOTIF_SEND_REQUEST,
-        payload,
+
     }),
 
     notifSendSuccess: payload => ({
@@ -14,9 +18,9 @@ const notifActions = {
       payload,
     }),
 
-    notifSendFail: payload => ({
+    notifSendFail: err => ({
       type: notifActions.NOTIF_SEND_FAIL,
-      payload,
+      err,
     }),
 
 
