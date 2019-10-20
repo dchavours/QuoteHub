@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-
 import { PushNotifications } from "../../PushNotifications/PushNotifications";
-
-
 import ListItem from '../ListItem/ListItem';
 import actions from '../../../redux/todo/actions';
 import '../List/List.css';

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import todoActions from '../../redux/todo/actions';
+import notifActions from '../../redux/pushNotifications/actions'
 import BadgeButton from '../../components/BadgeButton';
 // import List from '../../components/List';
 import List from '../../components/List/List/List';
@@ -10,13 +11,18 @@ import './styles.css';
 // import { Modal } from 'antd';
 
 const { fetchToDoRequest } = todoActions;
+const { notifSendRequest } = notifActions
 
 class Dashboard extends React.Component {
   componentDidMount() {
-    const { fetchRequest } = this.props;
+    // Trying to replace logic to see if it works. 
+    const { fetchRequest, notifRequest } = this.props;
 
+    notifRequest();
     fetchRequest();
   }
+
+
 
   render() {
     const { loading, todos, modal } = this.props;
@@ -48,8 +54,11 @@ const mapStateToProps = state => ({
 
 });
 
+
+// So I'm assuming that fetchRequest is sending a dispatch through fetchToDoRequest.
 const mapDispatchToProps = {
   fetchRequest: fetchToDoRequest,
+  notifRequest: notifSendRequest
 };
 
 export default connect(

@@ -10,7 +10,6 @@ const notifActions = {
     
     notifSendRequest: () =>({
         type: notifActions.NOTIF_SEND_REQUEST,
-
     }),
 
     notifSendSuccess: payload => ({
