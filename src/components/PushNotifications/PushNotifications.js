@@ -12,11 +12,7 @@ const {sendTokenToDBRequest} = notifActions
 
 export class PushNotifications extends Component {
    
-
- componentDidMount = () =>{   
-  function initializePush(){
-   
-
+initializePush(){
     messaging
        .requestPermission()
        .then(() => {
@@ -39,21 +35,15 @@ export class PushNotifications extends Component {
              });
      }
 
-     initializePush();
-}
 
 
 
 
 
-    render() 
-    
-    
-    
-    {
+    render(){
         return (
             <div>
-                
+                  <div className="pushNotificationDiv">{this.initializePush()}</div>
             </div>
         )
     }
