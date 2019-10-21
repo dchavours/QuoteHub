@@ -12,13 +12,15 @@ const {sendTokenToDBRequest} = notifActions
 
 export class PushNotifications extends Component {
    state = {
-      tokenValue: 'uuyuyuyuy'
+      tokenValue: '',
+      formValue: '',
+
 
    };
 
 
-   
-initializePush(){
+   // Works but runs in an infinite loop. 
+componentDidMount(){
     messaging
        .requestPermission()
        .then(() => {
@@ -27,12 +29,8 @@ initializePush(){
         })
        .then(token => {
           console.log(token);
-          this.props.sendTokenToDB(token);
-          
-          //you probably want to send your new found FCM token to the
-          //application server so that they can send any push
-          //notification to you. Hence how you do automation. 
-          // I can use this system to replace recent enquries counter. 
+          this.setState({ tokenValue: token });
+      
         })
        .catch(error => {
           if (error.code === "messaging/permission-blocked") {
@@ -42,16 +40,17 @@ initializePush(){
               }
              });
           }
+          
 
           getState(){
              console.log(this.state);
+             
 
           }
 
     render(){
         return (
             <div>
-                  <div className="pushNotificationDiv">{this.initializePush()}</div>
                   <div className="pushNotificationDiv">{this.getState()}</div>
                
 
