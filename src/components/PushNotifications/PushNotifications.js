@@ -12,6 +12,8 @@ const {sendTokenToDBRequest} = notifActions
 
 export class PushNotifications extends Component {
    
+
+   
 initializePush(){
     messaging
        .requestPermission()
@@ -21,6 +23,10 @@ initializePush(){
         })
        .then(token => {
           console.log(token);
+          this.props.addTokenItem(token);
+      
+   
+          
           //you probably want to send your new found FCM token to the
           //application server so that they can send any push
           //notification to you. Hence how you do automation. 
@@ -33,17 +39,15 @@ initializePush(){
              console.log("Error Occurred", error);
               }
              });
-     }
-
-
-
-
+          }
 
 
     render(){
         return (
             <div>
                   <div className="pushNotificationDiv">{this.initializePush()}</div>
+               
+
             </div>
         )
     }

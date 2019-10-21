@@ -31,9 +31,30 @@ function* requestTokenHandler() {
 }
 
 
+function sendTokenToDBRequest(payload){
+  return new Promise((resolve, reject) => {
+    tokenRef
+      .push()
+      .set(payload)
+      .then(() => resolve(payload))
+      .catch(() => reject(new Error('Error!')));
+  });
+}
+
+function* sendTokenToDBRequestHandler({payload}){
+  try {
+    const newTodo = yield call(sendTokenToDBRequest, payload);
+    yield put(actions.sendTokenToDBRequest(newTodo));
+  } catch (err) {
+    yield put(actions.sendTokenToDBFail(err));
+  }
+
+}
+
 
 
 export default function* tokenSagas() {
   yield takeLatest(actions.NOTIF_SEND_REQUEST, requestTokenHandler);
+  yield takeLatest(actions.SEND_TOKEN_REQUEST, sendTokenToDBRequestHandler);
   
 }
