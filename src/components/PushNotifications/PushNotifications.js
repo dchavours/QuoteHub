@@ -28,6 +28,7 @@ componentDidMount(){
           return messaging.getToken();
         })
        .then(token => {
+          // Fix memory leak issue: https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component
           console.log(token);
           this.setState({ tokenValue: token });
       
@@ -43,7 +44,7 @@ componentDidMount(){
           
 
           getState(){
-             console.log(this.state);
+             console.log('currentState=', this.state);
              
 
           }
