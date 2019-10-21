@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-// import notifActions from "../../redux/pushNotifications/actions";
+import notifActions from "../../redux/pushNotifications/actions";
 import { messaging } from "../../config/firebase";
+import { connect } from "react-redux";
 
 // Being the process of sending found token to firebase. 
 // const {sendTokenToDB} = notifActions; 
 
 // I want to ask permission within this file. 
+
+const {sendTokenToDBRequest} = notifActions
 
 export class PushNotifications extends Component {
    
@@ -56,10 +59,16 @@ export class PushNotifications extends Component {
     }
 }
 
-export default PushNotifications
+
+const mapDispatchToProps = { 
+
+   sendTokenToDB: sendTokenToDBRequest
+}
 
 
+// Connecting PushNotifications to the store. 
 
-
-
-
+export default connect(
+   null,
+   mapDispatchToProps
+)(PushNotifications)

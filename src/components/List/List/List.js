@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import { PushNotifications } from "../../PushNotifications/PushNotifications";
 import ListItem from '../ListItem/ListItem';
-import actions from '../../../redux/todo/actions';
+import listActions from '../../../redux/todo/actions';
 import '../List/List.css';
 
 
-const { addToDoRequest } = actions;
+const { addToDoRequest } = listActions;
 
 class List extends Component {
   state = {
