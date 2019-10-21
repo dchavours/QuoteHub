@@ -19,10 +19,6 @@ class List extends Component {
     this.setState({ formValue: event.target.value });
   };
 
-
-
-
-
   formSubmit = event => {
     event.preventDefault();
     const { formValue } = this.state;
@@ -100,6 +96,7 @@ class List extends Component {
 }
 
 const mapDispatchToProps = {
+  // addToDo gets dispatched to the store.
   addToDo: addToDoRequest,
 };
 

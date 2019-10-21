@@ -11,7 +11,11 @@ import { connect } from "react-redux";
 const {sendTokenToDBRequest} = notifActions
 
 export class PushNotifications extends Component {
-   
+   state = {
+      tokenValue: 'uuyuyuyuy'
+
+   };
+
 
    
 initializePush(){
@@ -23,9 +27,7 @@ initializePush(){
         })
        .then(token => {
           console.log(token);
-          this.props.addTokenItem(token);
-      
-   
+          this.props.sendTokenToDB(token);
           
           //you probably want to send your new found FCM token to the
           //application server so that they can send any push
@@ -41,11 +43,16 @@ initializePush(){
              });
           }
 
+          getState(){
+             console.log(this.state);
+
+          }
 
     render(){
         return (
             <div>
                   <div className="pushNotificationDiv">{this.initializePush()}</div>
+                  <div className="pushNotificationDiv">{this.getState()}</div>
                
 
             </div>

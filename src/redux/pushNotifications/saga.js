@@ -37,7 +37,8 @@ function sendTokenToDBRequest(payload){
       .push()
       .set(payload)
       .then(() => resolve(payload))
-      .catch(() => reject(new Error('Error!')));
+      .catch(() => 
+      reject(new Error('Error!')));
   });
 }
 

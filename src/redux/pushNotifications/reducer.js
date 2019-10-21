@@ -30,6 +30,39 @@ export default function notifReducer(state = initialState, action) {
         fetchingNote: false,
         error: payload,
       };
+
+      case actions.SEND_TOKEN_REQUEST:
+        return {
+          ...state,
+          addLoading: true,
+          error: null,
+        };
+      case actions.SEND_TOKEN_SUCCESS:
+        return {
+          ...state,
+          addLoading: false,
+          todos: {
+            ...state.todos,
+            payload,
+          },
+          error: null,
+        };
+      case actions.SEND_TOKEN_FAIL:
+        return {
+          ...state,
+          addLoading: false,
+          error: payload,
+        };
+  
+        
+
+
+
+
+
+
+
+
     default:
       return state;
   }
