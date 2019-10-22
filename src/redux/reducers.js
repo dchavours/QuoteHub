@@ -1,6 +1,6 @@
 import TodoReducer from './todo/reducer';
 // import ModalReducer from './modal/reducer';
-
+import  notifReducer from "./pushNotifications/reducer";
 import { reducer as modal } from "redux-modal";
 
 // import ModalReducer from './modal/reducer';
@@ -8,7 +8,9 @@ import { reducer as modal } from "redux-modal";
 
 export default {
   TodoReducer,
-  modal
+  modal,
+  notifReducer
+
   // ModalReducer,
 
 };

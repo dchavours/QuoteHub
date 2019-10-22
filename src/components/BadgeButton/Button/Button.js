@@ -4,7 +4,7 @@ import React from 'react'
 
 
 export const Button = props => {
-            console.log(props);
+            // console.log(props);
     return (   
     <div>
        {props.children}

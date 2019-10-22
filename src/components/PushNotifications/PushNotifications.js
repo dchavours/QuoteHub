@@ -13,7 +13,7 @@ const {sendTokenToDBRequest} = notifActions
 export class PushNotifications extends Component {
    state = {
       tokenValue: '',
-      formValue: '',
+     
 
 
    };
@@ -30,8 +30,12 @@ componentDidMount(){
        .then(token => {
           // Fix memory leak issue: https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component
           console.log(token);
-          this.setState({ tokenValue: token });
+          const { tokenValue } = this.state;
+          const { sendTokenToDB } = this.props;
       
+          sendTokenToDB({ name: tokenValue });
+            // addToDo is equivalent to sendTokenToDB 
+          this.setState({ tokenValue: token });
         })
        .catch(error => {
           if (error.code === "messaging/permission-blocked") {
