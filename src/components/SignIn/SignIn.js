@@ -1,3 +1,4 @@
+// This is written with thunk and firestore. 
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
