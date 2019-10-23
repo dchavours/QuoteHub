@@ -31,21 +31,21 @@ function* requestTokenHandler() {
 }
 
 
-function sendTokenToDB(payload){
+function sendTokenToDBRequest(payload){
   return new Promise((resolve, reject) => {
     tokenRef
       .push()
       .set(payload)
-      .then(() => resolve(payload), console.log(payload))
+      .then(() => resolve(payload))
       .catch(() => 
-      reject(new Error('Error!'), console.log(Error)));
+      reject(new Error('Error!')));
   });
 }
 
 function* sendTokenToDBRequestHandler({payload}){
   try {
-    const newTodo = yield call(sendTokenToDB, payload);
-    yield put(actions.sendTokenToDB(newTodo));
+    const newTodo = yield call(sendTokenToDBRequest, payload);
+    yield put(actions.sendTokenToDBRequest(newTodo));
   } catch (err) {
     yield put(actions.sendTokenToDBFail(err));
   }
