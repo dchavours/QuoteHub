@@ -6,12 +6,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import sagas from './sagas';
 import reducers from './reducers';
+import thunk from 'redux-thunk';
 
 const history = createHistory();
 const sagaMiddleware = createSagaMiddleware();
 const routeMiddleware = routerMiddleware(history);
 
-const middlewares = [sagaMiddleware, routeMiddleware];
+const middlewares = [thunk, sagaMiddleware, routeMiddleware];
 
 
 
