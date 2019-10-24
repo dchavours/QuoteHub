@@ -1,21 +1,21 @@
+
 const authActions = {
-    LOGIN_REQUEST:'LOGIN_REQUEST',
-    LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-    LOGIN_FAIL: 'LOGIN_FAIL',
+    SIGNIN_REQUEST:'SIGNIN_REQUEST',
+    SIGNIN_SUCCESS: 'SIGNIN_SUCCESS',
+    SIGNIN_FAIL: 'SIGNIN_FAIL',
 
     signInRequest: payload => ({
-        type: authActions.LOGIN_REQUEST,
+        type: authActions.SIGNIN_REQUEST,
         payload
     }),
 
-    signInSuccess: payload => ({
-        type: authActions.LOGIN_SUCCESS,
-        payload
+    signInSuccess: () => ({
+        type: authActions.SIGNIN_SUCCESS,
     }),
 
-    signInFail: payload => ({
-        type: authActions.LOGIN_FAIL,
-        payload
+    signInFail: err => ({
+        type: authActions.SIGNIN_FAIL,
+        err
     }),
 
 }

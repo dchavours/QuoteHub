@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import notifActions from '../../redux/auth/actions'
+import authActions from '../../redux/auth/actions'
 // import { Redirect } from 'react-router-dom'
 
-const { signInRequest } = notifActions;
+const { signInRequest } = authActions;
 
 export class SignIn extends Component {
   state = {
@@ -48,12 +48,16 @@ export class SignIn extends Component {
 }
 
 // const mapStateToProps = (state) => {
+//   console.log(state);
 //   return{
 //     authError: state.auth.authError,
 //     auth: state.firebase.auth
 //   }
 // }
 
+
+// I think the saga function is being called first in this system. And then the 
+// action type is the equivalent. 
 const mapDispatchToProps = (dispatch) => {
   return {
     signInRequest: (creds) => dispatch(signInRequest(creds))
