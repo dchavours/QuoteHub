@@ -1,9 +1,11 @@
 // This is written with thunk and firestore. 
 
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-// import { signIn } from '../../store/actions/authActions'
+import { connect } from 'react-redux'
+import notifActions from '../../redux/auth/actions'
 // import { Redirect } from 'react-router-dom'
+
+const { signInRequest } = notifActions;
 
 export class SignIn extends Component {
   state = {
@@ -17,7 +19,7 @@ export class SignIn extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signIn(this.state)
+    this.props.signInRequest(this.state)
   }
   render() {
     const { authError, auth } = this.props;
@@ -52,13 +54,12 @@ export class SignIn extends Component {
 //   }
 // }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     signIn: (creds) => dispatch(signIn(creds))
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signInRequest: (creds) => dispatch(signInRequest(creds))
+  }
+}
 
 
 
-
-export default SignIn
+export default connect(null, mapDispatchToProps)(SignIn);
