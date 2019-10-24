@@ -5,6 +5,8 @@ import { reducer as modal } from "redux-modal";
 
 import AuthReducer from './auth/reducer';
 
+import { firebaseReducer as firebase } from "react-redux-firebase"
+
 
 // import ModalReducer from './modal/reducer';
 
@@ -16,7 +18,7 @@ import AuthReducer from './auth/reducer';
 export default {
   TodoReducer,
   modal,
-  AuthReducer
-  // ModalReducer,
+  AuthReducer,
+  firebase
 
 };

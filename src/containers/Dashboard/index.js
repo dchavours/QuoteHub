@@ -6,6 +6,7 @@ import BadgeButton from '../../components/BadgeButton';
 // import List from '../../components/List';
 import List from '../../components/List/List/List';
 // import ModalDownload from "../../components/downloads/Modal";
+import { Redirect } from "react-router-dom";
 
 import './styles.css';
 // import { Modal } from 'antd';
@@ -25,7 +26,8 @@ class Dashboard extends React.Component {
 
 
   render() {
-    const { loading, todos } = this.props;
+    const { loading, todos, auth } = this.props;
+        if(!auth.uid) return <Redirect to='/signin'/>
     if (loading) {
       return (
         <div className="page-loader-fullscreen height-full width-full">
@@ -47,12 +49,15 @@ class Dashboard extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+  auth: state.firebase.auth,
   todos: state.TodoReducer.todos,
   loading: state.TodoReducer.fetchLoading,
   // modal: state.ModalReducer.modalProps
-
-});
+}
+};
 
 
 // So I'm assuming that fetchRequest is sending a dispatch through fetchToDoRequest.

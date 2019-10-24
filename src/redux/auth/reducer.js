@@ -28,25 +28,9 @@ export default function AuthReducer(state = initialState, action){
           return{
             ...state, 
             authError: 'Login fail'
-
           }
-
     default:
       return state;
   }
 
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
