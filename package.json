@@ -22,6 +22,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-modal": "^3.0.2",
     "redux-saga": "^1.0.5",
+    "redux-thunk": "^2.3.0",
     "request": "^2.88.0"
   },
   "scripts": {
