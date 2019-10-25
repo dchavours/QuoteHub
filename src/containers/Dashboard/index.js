@@ -6,7 +6,7 @@ import BadgeButton from '../../components/BadgeButton';
 // import List from '../../components/List';
 import List from '../../components/List/List/List';
 // import ModalDownload from "../../components/downloads/Modal";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 import './styles.css';
 // import { Modal } from 'antd';
@@ -41,6 +41,7 @@ class Dashboard extends React.Component {
     }
     return (
       <div className="container">
+        {/* SignoutButton */}
         {/* <ModalDownload/> */}
         <BadgeButton todos={todos} />
         <List todos={todos} />
