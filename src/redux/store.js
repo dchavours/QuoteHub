@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createBrowserHistory as createHistory } from 'history';
-import createSagaMiddleware from 'redux-saga';
+import createSagaMiddleware, {END} from 'redux-saga';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -22,5 +22,7 @@ const store = createStore(
 );
 
 sagaMiddleware.run(sagas);
+
+store.close = () => store.dispatch(END);
 
 export default store;

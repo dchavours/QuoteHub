@@ -1,69 +1,101 @@
-// This is written with thunk and firestore. 
-
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import authActions from '../../redux/auth/actions'
+// This is written with thunk and firestore.
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 // import { Redirect } from 'react-router-dom'
 
-const { signInRequest } = authActions;
+import { login, getUser } from '../../redux/reduxThunks/actions/userActions';
+
+import SimpleBox from "../SignInComponents/SimpleBox";
+import InputField from "../SignInComponents/InputField";
+import FooterFormButton from "../SignInComponents/FooterFormButton";
+import ErrorAlert from "../SignInComponents/ErrorAlert";
+
 
 export class SignIn extends Component {
-  state = {
-    email: '',
-    password: ''
+  // Apparently this is not a Redux controlled form.
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      error: '',
+    };
   }
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
+
+  componentWillMount() {
+    this.props.getUser();
   }
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.signInRequest(this.state)
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.email !== undefined) {
+      this.props.history.push('/');
+    }
   }
-  render() {
-    const { authError, auth } = this.props;
+
+  submitLogin(event) {
+    event.preventDefault();
+    this.props.login(this.state.email, this.state.password).catch(err => {
+      this.setState({
+        error: err,
+      });
+    });
+  }
+
+  renderBody() {
+    const errStyle = {
+      borderColor: 'red',
+    };
     return (
-      <div className="container">
-        <form className="white" onSubmit={this.handleSubmit}>
-          <h5 className="grey-text text-darken-3">Sign In</h5>
-          <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id='email' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id='password' onChange={this.handleChange} />
-          </div>
-          <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Login</button>
-            <div className="center red-text">
-              { authError ? <p>{authError}</p> : null }
-            </div>
-          </div>
-        </form>
+      <form
+        onSubmit={event => {
+          this.submitLogin(event);
+        }}
+      >
+        <div>
+          <InputField
+            id="email"
+            type="text"
+            label="Email"
+            inputAction={event => this.setState({ email: event.target.value })}
+            style={this.state.error ? errStyle : null}
+          />
+          <InputField
+            id="password"
+            type="password"
+            label="Password"
+            inputAction={event =>
+              this.setState({ password: event.target.value })
+            }
+            style={this.state.error ? errStyle : null}
+          />
+          {this.state.error && (
+            <ErrorAlert>Your username/password is incorrect</ErrorAlert>
+          )}
+          <FooterFormButton
+            submitLabel="Sign in"
+            otherLabel="Create Account"
+            goToLink="/CreateAccount"
+            {...this.props}
+          />
+        </div>
+      </form>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <SimpleBox title="sign in" body={this.renderBody()} />
       </div>
-    )
+    );
   }
 }
 
-// const mapStateToProps = (state) => {
-//   console.log(state);
-//   return{
-//     authError: state.auth.authError,
-//     auth: state.firebase.auth
-//   }
-// }
-
-
-// I think the saga function is being called first in this system. And then the 
-// action type is the equivalent. 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signInRequest: (creds) => dispatch(signInRequest(creds))
-  }
+function mapStateToProps(state){
+  return { user: state.user}
 }
 
-
-
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(
+  mapStateToProps,
+  {login, getUser}
+)(SignIn)

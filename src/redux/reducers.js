@@ -3,9 +3,10 @@ import TodoReducer from './todo/reducer';
 
 import { reducer as modal } from "redux-modal";
 
-import AuthReducer from './auth/reducer';
-
+import { thunkReducers } from '../redux/reduxThunks/reducers/index';
 import { firebaseReducer as firebase } from "react-redux-firebase"
+
+
 
 
 // import ModalReducer from './modal/reducer';
@@ -16,9 +17,10 @@ import { firebaseReducer as firebase } from "react-redux-firebase"
 
 
 export default {
+  thunkReducers,
   TodoReducer,
   modal,
-  AuthReducer,
+  // AuthReducer,
   firebase
 
 };
