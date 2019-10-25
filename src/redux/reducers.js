@@ -3,10 +3,10 @@ import TodoReducer from './todo/reducer';
 
 import { reducer as modal } from "redux-modal";
 
-import { thunkReducers } from '../redux/reduxThunks/reducers/index';
-import { firebaseReducer as firebase } from "react-redux-firebase"
 
 
+import  loginReducer  from '../redux/auth/reducer';
+import loading from './asyncLoading/loading'
 
 
 // import ModalReducer from './modal/reducer';
@@ -17,10 +17,9 @@ import { firebaseReducer as firebase } from "react-redux-firebase"
 
 
 export default {
-  thunkReducers,
+  auth: loginReducer,
   TodoReducer,
   modal,
-  // AuthReducer,
-  firebase
+  loading
 
 };

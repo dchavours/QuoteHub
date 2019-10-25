@@ -1,36 +1,55 @@
-import actions from './actions';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const AUTH_FAILED = 'AUTH_FAILED';
+export const LOGOUT = 'LOGOUT';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+
+export const login = (email, password) => ({
+  type: LOGIN,
+  payload: { email, password }
+});
+
+export const logout = () => ({
+  type: LOGOUT
+});
 
 const initialState = {
-    authError: null
+  isAuthenticated: false,
+  user: null,
+  error: null
+};
 
-}
-
-export default function AuthReducer(state = initialState, action){
-
-    const { type, payload } = action;
-
-  switch (type) {
-    case actions.SIGNIN_REQUEST:
-        console.log(type, 'Sign in request.')
+const loginReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOGIN_SUCCESS: {
       return {
         ...state,
-        authError: null
+        isAuthenticated: true,
+        user: action.payload.user,
+        error: null
       };
-    case actions.SIGN_SUCCESS:
-        console.log('Sign in succes.')
+    }
+    case AUTH_FAILED: {
       return {
         ...state,
-        fetchLoading: false,
-        todos: payload,
-        error: null,
+        isAuthenticated: false,
+        user: null,
+        error: action.payload.error
       };
-      case actions.SIGN_FAIL:
-          return{
-            ...state, 
-            authError: 'Login fail'
-          }
+    }
+    case LOGOUT_SUCCESS: {
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null
+      };
+    }
     default:
       return state;
   }
+};
 
-}
+export const getUser = state => state.auth.user || {};
+export const isAuthenticated = state => state.auth.isAuthenticated || false;
+
+export default loginReducer;

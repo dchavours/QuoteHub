@@ -1,101 +1,82 @@
-// This is written with thunk and firestore.
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Redirect } from 'react-router-dom'
-
-import { login, getUser } from '../../redux/reduxThunks/actions/userActions';
-
-import SimpleBox from "../SignInComponents/SimpleBox";
-import InputField from "../SignInComponents/InputField";
-import FooterFormButton from "../SignInComponents/FooterFormButton";
-import ErrorAlert from "../SignInComponents/ErrorAlert";
+import { Redirect } from 'react-router-dom';
+import { Form, Grid, Message, Segment } from 'semantic-ui-react';
+import { login } from '../../redux/auth/reducer';
 
 
-export class SignIn extends Component {
-  // Apparently this is not a Redux controlled form.
+class LoginPage extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: '',
-      password: '',
-      error: '',
+      password: ''
     };
   }
 
-  componentWillMount() {
-    this.props.getUser();
-  }
+  handleSubmit = evt => {
+    evt.preventDefault();
+    const { email, password } = this.state;
+    this.props.login(email, password);
+  };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.email !== undefined) {
-      this.props.history.push('/');
-    }
-  }
-
-  submitLogin(event) {
-    event.preventDefault();
-    this.props.login(this.state.email, this.state.password).catch(err => {
-      this.setState({
-        error: err,
-      });
+  handleChange = (evt, { name, value }) =>
+    this.setState({
+      [name]: value
     });
-  }
-
-  renderBody() {
-    const errStyle = {
-      borderColor: 'red',
-    };
-    return (
-      <form
-        onSubmit={event => {
-          this.submitLogin(event);
-        }}
-      >
-        <div>
-          <InputField
-            id="email"
-            type="text"
-            label="Email"
-            inputAction={event => this.setState({ email: event.target.value })}
-            style={this.state.error ? errStyle : null}
-          />
-          <InputField
-            id="password"
-            type="password"
-            label="Password"
-            inputAction={event =>
-              this.setState({ password: event.target.value })
-            }
-            style={this.state.error ? errStyle : null}
-          />
-          {this.state.error && (
-            <ErrorAlert>Your username/password is incorrect</ErrorAlert>
-          )}
-          <FooterFormButton
-            submitLabel="Sign in"
-            otherLabel="Create Account"
-            goToLink="/CreateAccount"
-            {...this.props}
-          />
-        </div>
-      </form>
-    );
-  }
 
   render() {
+    const { isAuthenticated, error } = this.props;
+
+    if (isAuthenticated) {
+      // Originally Redirect to="/"
+      return <Redirect to="/dashboard" />;
+    }
+
     return (
-      <div>
-        <SimpleBox title="sign in" body={this.renderBody()} />
-      </div>
+      <Grid columns="2" centered stackable>
+        <Grid.Column>
+          <Segment clearing>
+            {error && <Message error>{error.message}</Message>}
+
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Input
+                type="email"
+                id="email"
+                name="email"
+                required
+                label="Email"
+                placeholder="Email"
+                onChange={this.handleChange}
+              />
+              <Form.Input
+                type="password"
+                id="password"
+                name="password"
+                required
+                label="Password"
+                placeholder="Password"
+                onChange={this.handleChange}
+              />
+              <span className="tiny gray">Try: demo@mail.com / 123456</span>
+              <Form.Button
+                primary
+                type="submit"
+                content="Login"
+                floated="right"
+              />
+            </Form>
+          </Segment>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
 
-function mapStateToProps(state){
-  return { user: state.user}
-}
+const mapStateToProps = ({ auth: { isAuthenticated, error } }) => ({
+  isAuthenticated,
+  error
+});
 
-export default connect(
-  mapStateToProps,
-  {login, getUser}
-)(SignIn)
+export default connect(mapStateToProps, { login })(LoginPage);
