@@ -41,6 +41,7 @@ class Dashboard extends React.Component {
     }
     return (
       <div className="container">
+        <button className="signout-button" onClick={() => {this.props.logout();}}>Sign out</button>
         {/* SignoutButton */}
         {/* <ModalDownload/> */}
         <BadgeButton todos={todos} />
