@@ -27,7 +27,7 @@ class Dashboard extends React.Component {
 
   render() {
     const { loading, todos, auth } = this.props;
-        if(!auth.uid) return <Redirect to='/signin'/>
+        // if(!auth.uid) return <Redirect to='/signin'/>
     if (loading) {
       return (
         <div className="page-loader-fullscreen height-full width-full">
