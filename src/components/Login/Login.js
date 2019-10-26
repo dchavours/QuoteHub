@@ -29,7 +29,7 @@ class LoginPage extends Component {
     const { isAuthenticated, error } = this.props;
 
     if (isAuthenticated) {
-      return <Redirect to="/" />;
+      return <Redirect to="/dashboard" />;
     }
 
     return (
