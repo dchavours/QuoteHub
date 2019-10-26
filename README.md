@@ -15,7 +15,7 @@ If you would like to see the live vesion of the GitHub repo >
 
 ## How does QuoteHub work? 
 Form submissions are sent from other website that goes into a firestore database, 
-then the QuoteHub dashboard displays the submissions. On the dashboard side, it uses Redux and React
+then the QuoteHub dashboard displays the submissions. On the dashboard side it uses Redux and React
 to display an intuitive and interactive user interface. 
 
 

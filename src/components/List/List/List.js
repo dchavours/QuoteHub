@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import { PushNotifications } from "../../PushNotifications/PushNotifications";
 import ListItem from '../ListItem/ListItem';
-import listActions from '../../../redux/todo/actions';
+import actions from '../../../redux/todo/actions';
 import '../List/List.css';
 
 
-const { addToDoRequest } = listActions;
+const { addToDoRequest } = actions;
 
 class List extends Component {
   state = {
@@ -22,9 +22,9 @@ class List extends Component {
   formSubmit = event => {
     event.preventDefault();
     const { formValue } = this.state;
-    const { addToDo } = this.props;
+    const { addToDoRequest } = this.props;
 
-    addToDo({ title: formValue });
+    addToDoRequest({ title: formValue });
     this.setState({ formValue: '' });
   };
 
@@ -97,7 +97,7 @@ class List extends Component {
 
 const mapDispatchToProps = {
   // addToDo gets dispatched to the store.
-  addToDo: addToDoRequest,
+ addToDoRequest
 };
 
 export default connect(
