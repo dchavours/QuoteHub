@@ -21,7 +21,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-modal": "^3.0.2",
     "redux-saga": "^1.0.5",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "semantic-ui-react": "^0.88.1"
   },
   "scripts": {
     "start": "react-scripts start",

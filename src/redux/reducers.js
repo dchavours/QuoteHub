@@ -3,12 +3,13 @@ import TodoReducer from './todo/reducer';
 
 import { reducer as modal } from "redux-modal";
 
-// import ModalReducer from './modal/reducer';
+import  loginReducer  from "../redux/auth/reducers";
 
 
 export default {
   TodoReducer,
-  modal
+  modal,
+  auth: loginReducer,
   // ModalReducer,
 
 };
