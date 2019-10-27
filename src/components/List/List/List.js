@@ -5,9 +5,15 @@ import { PushNotifications } from "../../PushNotifications/PushNotifications";
 import ListItem from '../ListItem/ListItem';
 import actions from '../../../redux/todo/actions';
 import '../List/List.css';
+// import { logout } from '../../../redux/auth/reducers';
 
+
+
+// import logout action?
 
 const { addToDoRequest } = actions;
+
+
 
 class List extends Component {
   state = {
@@ -27,6 +33,18 @@ class List extends Component {
     addToDoRequest({ title: formValue });
     this.setState({ formValue: '' });
   };
+
+
+  renderLogout = (logout) => {
+        
+      return (
+        <button classname="renderLogout" onClick={logout}>Logout</button>
+      )
+      
+    
+
+  } 
+
 
   renderForm = () => {
     const { showForm, formValue } = this.state;
@@ -73,6 +91,8 @@ class List extends Component {
     const { showForm } = this.state;
     return (
       <div className="to-do-list-container">
+        <div className='inputLogout' >{this.renderLogout()}</div>
+        
                   <PushNotifications/>
 
         <div className="row">{this.renderForm()}</div>
@@ -97,7 +117,8 @@ class List extends Component {
 
 const mapDispatchToProps = {
   // addToDo gets dispatched to the store.
- addToDoRequest
+ addToDoRequest,
+//  logout
 };
 
 export default connect(
