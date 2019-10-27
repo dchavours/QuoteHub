@@ -5,7 +5,9 @@ import actions from '../../../redux/todo/actions';
 import '../List/List.css';
 import { PushNotifications } from '../../PushNotifications/PushNotifications';
 import ListItem from '../ListItem/ListItem';
-import LogoutPage from '../../Logout/LogoutPage';
+import LogoutPage from '../../Login/LogoutPage';
+import { isAuthenticated } from '../../../redux/auth/reducers';
+import { Redirect } from 'react-router-dom';
 
 // import logout action?
 
@@ -72,6 +74,13 @@ class List extends Component {
 
   render() {
     const { showForm } = this.state;
+    const { isAuthenticated } = this.props
+
+    if (isAuthenticated == false) {
+      return <Redirect to="/login" />;
+    }
+
+
     return (
       <div className="to-do-list-container">
   
@@ -99,13 +108,23 @@ class List extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+
+  isAuthenticated: isAuthenticated(state)
+});
+
+
+
+
 const mapDispatchToProps = {
   // addToDo gets dispatched to the store.
   addToDoRequest,
 
 };
 
+
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(List);

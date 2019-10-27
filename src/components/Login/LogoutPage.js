@@ -6,11 +6,12 @@ import { logout, getUser, isAuthenticated } from '../../redux/auth/reducers';
 const UserInfo = ({ isAuthenticated, user, logout }) => {
   const trigger = (
     <span>
-      <Image src={user.photoURL} avatar /> {user.email}
+      <Image /> {user.email}
     </span>
   );
 
-  return isAuthenticated ? (
+//   return isAuthenticated ? (
+    return(
     <Menu.Item position="right">
       <Dropdown trigger={trigger} pointing="top right">
         <Dropdown.Menu>
@@ -19,7 +20,7 @@ const UserInfo = ({ isAuthenticated, user, logout }) => {
         </Dropdown.Menu>
       </Dropdown>
     </Menu.Item>
-  ) : null;
+  );
 };
 
 const mapStateToProps = state => ({
