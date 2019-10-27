@@ -15,7 +15,7 @@ const UserInfo = ({ isAuthenticated, user, logout }) => {
     <Menu.Item position="right">
       <Dropdown trigger={trigger} pointing="top right">
         <Dropdown.Menu>
-          {/* <Dropdown.Item text="Profile" icon="user" /> */}
+ 
           <Dropdown.Item text="Logout" icon="sign out" onClick={logout} />
         </Dropdown.Menu>
       </Dropdown>
