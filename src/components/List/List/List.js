@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { PushNotifications } from "../../PushNotifications/PushNotifications";
-import ListItem from '../ListItem/ListItem';
 import actions from '../../../redux/todo/actions';
 import '../List/List.css';
-// import { logout } from '../../../redux/auth/reducers';
-
-
+import { PushNotifications } from '../../PushNotifications/PushNotifications';
+import ListItem from '../ListItem/ListItem';
+import LogoutPage from '../../Logout/LogoutPage';
 
 // import logout action?
 
 const { addToDoRequest } = actions;
-
-
 
 class List extends Component {
   state = {
@@ -34,16 +30,6 @@ class List extends Component {
     this.setState({ formValue: '' });
   };
 
-
-  renderLogout = (logout) => {
-        
-      return (
-        <button classname="renderLogout" onClick={logout}>Logout</button>
-      )
-      
-    
-
-  } 
 
 
   renderForm = () => {
@@ -69,9 +55,6 @@ class List extends Component {
     );
   };
 
-
-
-
   renderToDo() {
     const { todos } = this.props;
     const data = _.map(todos, (value, key) => {
@@ -91,9 +74,10 @@ class List extends Component {
     const { showForm } = this.state;
     return (
       <div className="to-do-list-container">
-        <div className='inputLogout' >{this.renderLogout()}</div>
-        
-                  <PushNotifications/>
+  
+
+        <PushNotifications />
+        <LogoutPage />
 
         <div className="row">{this.renderForm()}</div>
         <div className="row">{this.renderToDo()}</div>
@@ -117,8 +101,8 @@ class List extends Component {
 
 const mapDispatchToProps = {
   // addToDo gets dispatched to the store.
- addToDoRequest,
-//  logout
+  addToDoRequest,
+
 };
 
 export default connect(

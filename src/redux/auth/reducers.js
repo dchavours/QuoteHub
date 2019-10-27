@@ -9,7 +9,7 @@ export const login = (email, password) => ({
   payload: { email, password }
 });
 
-export const logoutRequest = () => ({
+export const logout = () => ({
   type: LOGOUT
 });
 
