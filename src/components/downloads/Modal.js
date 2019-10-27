@@ -40,7 +40,7 @@ class ModalDownload extends Component {
         
 
         <br></br>
-        <p>{this.props.children}</p>
+        {/* <p>{this.props.children}</p> */}
         <br></br>
 
       </Modal>
