@@ -30,13 +30,15 @@ class ModalDownload extends Component {
         data={this.props}
       >  
         <br></br>
-        Put formatted code here.<br></br> 
+        <h5>{this.props.date}</h5>
+        <br></br> 
         {/* <p>{postList}</p> */}
-        <h1>{this.props.company}</h1>
+        <h3>{this.props.company}</h3>
         <h3>{this.props.name}</h3>
         <h4>{this.props.email}</h4>
         <p>{this.props.message}</p>
-        <p>{this.props.phone}</p>
+        <h5>{this.props.phone}</h5>
+         <p>{this.props.date}</p>
         
 
         <br></br>
