@@ -57,7 +57,7 @@ class LoginPage extends Component {
                 placeholder="Password"
                 onChange={this.handleChange}
               />
-              <span className="tiny gray">Try: demo@mail.com / 123456</span>
+              <span className="tiny gray">Try: email@email.com / Password</span>
               <Form.Button
                 primary
                 type="submit"
