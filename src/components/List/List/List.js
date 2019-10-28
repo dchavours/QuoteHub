@@ -76,7 +76,7 @@ class List extends Component {
     const { showForm } = this.state;
     const { isAuthenticated } = this.props
 
-    if (isAuthenticated == false) {
+    if (isAuthenticated === false) {
       return <Redirect to="/login" />;
     }
 
