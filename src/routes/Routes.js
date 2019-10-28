@@ -12,6 +12,7 @@ const Routes = () => {
         <Route path="/" exact render={() => <Redirect to="/dashboard" />} />
         <Route path="/dashboard" exact component={DashboardPage} />
         <Route path="/Login" exact component={LoginPage} />
+        <Route path="/html/quotehub.html" exact render={() => <Redirect to="/login" />} />
       </Switch>
     </BrowserRouter>
   );
