@@ -38,7 +38,6 @@ class ModalDownload extends Component {
         <h4>{this.props.email}</h4>
         <p>{this.props.message}</p>
         <h5>{this.props.phone}</h5>
-         <p>{this.props.date}</p>
         
 
         <br></br>

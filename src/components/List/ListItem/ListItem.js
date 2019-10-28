@@ -61,7 +61,7 @@ class ListItem extends Component {
           </span>
 		  <br />
 
-        <Button text="Open Modal" key={this.todo} onClick={this.handleOpen("download")}/>
+        <Button text="View In Detail" key={this.todo} onClick={this.handleOpen("download")}/>
 
 
 
