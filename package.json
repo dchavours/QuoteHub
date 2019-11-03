@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.23.2",
+    "chart.js": "^2.9.2",
     "chramework": "^1.1.113",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.5.2",
@@ -13,6 +14,7 @@
     "materialize-css": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
