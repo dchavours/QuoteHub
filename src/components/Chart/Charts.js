@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
+import { connect } from 'react-redux';
+import { isAuthenticated } from '../../redux/auth/reducers';
+import { Redirect } from 'react-router-dom';
 
 
 
-export class Chart extends Component{
-  
+export class Charts extends Component{
+  state = {
+    showSomething: ''
+  }
+   
 
   render() {
+    const { isAuthenticated } = this.props
 
+    if (isAuthenticated === false) {
+      return <Redirect to="/charts" />;
+    }
 
     const data = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -48,20 +58,16 @@ export class Chart extends Component{
   }
 };
 
-export default Chart
+
+const mapStateToProps = state => ({
+
+  isAuthenticated: isAuthenticated(state)
+});
 
 
-// import React, { Component } from 'react'
 
-// export class Chart extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 <p> Paragraph Tag  </p>
-//             </div>
-//         )
-//     }
-// }
 
-// export default Chart
+export default connect(
+mapStateToProps,
+null)(Charts);
 

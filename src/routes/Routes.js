@@ -5,7 +5,7 @@ import  LoginPage  from "../components/Login/Login";
 
 import DashboardPage from '../containers/Dashboard';
 
-import Charts from '../components/Chart/Charts';
+import ChartsPage from '../containers/Charts';
 
 const Routes = () => {
   return (
@@ -14,10 +14,10 @@ const Routes = () => {
         <Route path="/" exact render={() => <Redirect to="/dashboard" />} />
         {/* Must be authenticated */}
         <Route path="/dashboard" exact component={DashboardPage} />
-        <Route path="/charts" exact component={Charts} />
+        <Route path="/charts" exact component={ChartsPage} />
           {/* Must be authenticated */}
         <Route path="/Login" exact component={LoginPage} />
-        <Route path="/html/quotehub.html" exact render={() => <Redirect to="/login" />} />
+
       </Switch>
     </BrowserRouter>
   );
