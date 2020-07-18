@@ -10,7 +10,7 @@
     "connected-react-router": "^6.5.2",
     "firebase": "^6.3.4",
     "history": "^4.9.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "materialize-css": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
